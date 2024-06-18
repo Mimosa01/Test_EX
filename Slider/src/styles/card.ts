@@ -43,6 +43,11 @@ interface PropsWrapper {
 export const CardWrapper = styled.div<PropsWrapper>`
   display: flex;
   column-gap: 12px;
+  /* 
+  ${({$down}) => $down && `margin-top: auto`}
+  или
+  ${props => props.$down && `margin-top: auto`} 
+  */
   ${props => {if (props.$down) return css`margin-top: auto`;}}
 `;
 

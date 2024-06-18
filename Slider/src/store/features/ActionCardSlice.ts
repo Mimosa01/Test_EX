@@ -24,7 +24,7 @@ export const ActionCardSlice = createSlice({
   reducers: {
     deleteCard: (state, action: PayloadAction<number>) => {
       const findCard = state.data.find(item => item.id === action.payload);
-      
+
       if (findCard) {
         const index = state.data.indexOf(findCard);
         state.data.splice(index, 1);
@@ -36,6 +36,17 @@ export const ActionCardSlice = createSlice({
     },
     addCard: (state, action: PayloadAction<string>) => {
       const id = Math.floor(Math.random() * (MAX - MIN + 1) + MIN);
+      /*
+       Можно использовать метод spread.
+       Пример: 
+       const newElem = {
+       id: id,
+       title: action.payload
+       }
+       setState( prev => [...prev, newElem])
+       или
+       setState( prev => [...prev, {id:id, title: action.payload}])
+       */
       state.data.push({
         id: id,
         title: action.payload
