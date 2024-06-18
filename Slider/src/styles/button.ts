@@ -35,6 +35,7 @@ export const Arrow = styled.button<PropsArrowButton>`
   border: none;
   background-color: #4682b4;
   border-radius: 30px;
+  z-index: 100;
   transform: translateY(-50%) ${props => props.$isRight && 'rotate(180deg)'};
 
   & svg path {
