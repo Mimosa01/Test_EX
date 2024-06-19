@@ -7,8 +7,8 @@ import { baseCard, deleteCard } from "../../store/features/ActionCardSlice";
 
 interface PropsCard {
   isBase?: boolean;
-  isHide?: boolean;
   data: TestData;
+  onClick?: () => void;
 }
 
 export const Card: FC<PropsCard> = (props) => {
@@ -22,14 +22,16 @@ export const Card: FC<PropsCard> = (props) => {
     dispatch(baseCard(id));
   }
 
+  const handler = props.onClick ? props.onClick : () => handleDelete(props.data.id);
+
   return (
-    <StyledCard $isHide={props.isHide}>
+    <StyledCard>
       {props.isBase && <h1>Base Card</h1>}
       <CardHeader>
         {props.data.title}
       </CardHeader>
       <CardWrapper $down={true}>
-        <Button $delete onClick={() => handleDelete(props.data.id)}>delete</Button>
+        <Button $delete onClick={handler}>delete</Button>
         {!props.isBase && <Button onClick={() => handleBase(props.data.id)}>base</Button>}
       </CardWrapper>
     </StyledCard>

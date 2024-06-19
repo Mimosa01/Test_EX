@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface PropsStyledCard {
   $isHide?: boolean;
@@ -43,12 +43,7 @@ interface PropsWrapper {
 export const CardWrapper = styled.div<PropsWrapper>`
   display: flex;
   column-gap: 12px;
-  /* 
-  ${({$down}) => $down && `margin-top: auto`}
-  или
   ${props => props.$down && `margin-top: auto`} 
-  */
-  ${props => {if (props.$down) return css`margin-top: auto`;}}
 `;
 
 export const CardHeader = styled.h3`

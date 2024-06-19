@@ -12,8 +12,13 @@ export const SliderContainer = styled.div`
 
 export const StyledSliderList = styled.div`
   display: flex;
-  column-gap: 12px;
   padding: 10px;
   width: 100%;
   overflow: hidden;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  column-gap: 12px;
+  width: 100%;
 `;
