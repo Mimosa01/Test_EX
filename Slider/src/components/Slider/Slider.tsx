@@ -27,6 +27,9 @@ export const Slider = () => {
     setOffset(prev => prev + widthCard + paddingContainer);
   }
 
+  // Есть баг, когда есть карточка base, при переключении слайдеров в самое правое положение - левая кнопка не исчезает
+  // Не хватило функционала, что бы высчитывать ширину карточек динамически, вместо смены класса по достижению определённых размеров контейнера
+
   useEffect(() => {
     const child = wrapperRef.current?.children[wrapperRef.current?.children.length - 1];
     

@@ -24,7 +24,7 @@ export const ActionCardSlice = createSlice({
   reducers: {
     deleteCard: (state, action: PayloadAction<number>) => {
       const findCard = state.data.find(item => item.id === action.payload);
-      
+
       if (findCard) {
         const index = state.data.indexOf(findCard);
         state.data.splice(index, 1);
